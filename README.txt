@@ -19,7 +19,8 @@ Plan minimum:
 Może:
 - Endpoint menadżera
     + Wyświetlanie aktualnych cen w okolicy ze strony typu GUS\
--
+- możliwość zostawienia opinii po pobycie
+- jakiś generator numeru rezerwacji (np. skrót standardu pokoju + data + nr pokoju)
 
 
 
