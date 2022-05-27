@@ -10,17 +10,21 @@ Plan minimum:
 - Konta pracowników z różnymi uprawnieniami, do obsługi klientów oraz do zarządzania pracownikami, cenami,
   czy dostępnością pokoi
 - Możliwość założenia konta klienta
+- endpoint z rachunkiem
+
 
 
 
 
 Może:
-- Wyświetlanie aktualnych cen w okolicy ze strony typu GUS
+- Endpoint menadżera
+    + Wyświetlanie aktualnych cen w okolicy ze strony typu GUS\
+-
 
 
 
 Bajery:
 - Ładny wygląd strony
-
+- system zarządzania pracownikami, ich wypłatami itd.
 
 
