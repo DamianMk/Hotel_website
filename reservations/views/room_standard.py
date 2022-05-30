@@ -5,7 +5,6 @@ from django.views import View
 from django.views.generic import FormView
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
-from django.views.generic import CreateView
 from reservations.models import RoomStandard
 from reservations.forms import RoomStandardForm
 from reservations.forms import RoomStandardSelectForm
@@ -53,7 +52,7 @@ class RoomStandardSelectUpdateView(FormView):
 
 
 class RoomStandardDeleteView(DeleteView):
-    template_name = 'room_standard_delete_form.html'
+    template_name = 'room_standard_delete.html'
     model = RoomStandard
     success_url = reverse_lazy('room_standards')
 

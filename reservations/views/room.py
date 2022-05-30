@@ -5,9 +5,9 @@ from django.views import View
 from django.views.generic import FormView
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
-from django.views.generic import CreateView
 from reservations.models import Room
 from reservations.forms import RoomForm
+from reservations.forms import RoomSelectForm
 
 
 class RoomView(View):
@@ -36,6 +36,31 @@ class RoomCreateView(FormView):
         return result
 
 
+class RoomUpdateView(UpdateView):
+    template_name = 'form.html'
+    model = Room
+    form_class = RoomForm
+    success_url = reverse_lazy('rooms')
 
 
+class RoomSelectUpdateView(FormView):
+    template_name = 'form.html'
+    form_class = RoomSelectForm
+
+    def form_valid(self, form):
+        return redirect('room_update', pk=form.cleaned_data['room'].id)
+
+
+class RoomDeleteView(DeleteView):
+    template_name = 'room_delete.html'
+    model = Room
+    success_url = reverse_lazy('rooms')
+
+
+class RoomSelectDeleteView(FormView):
+    template_name = 'form.html'
+    form_class = RoomSelectForm
+
+    def form_valid(self, form):
+        return redirect('room_delete', pk=form.cleaned_data['room'].id)
 
