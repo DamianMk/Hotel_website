@@ -1,5 +1,6 @@
 __pycache__/
 .idea/
+migrations/
 draft.py
 db.sqlite3
 

@@ -11,6 +11,7 @@ Plan minimum:
   czy dostępnością pokoi
 - Możliwość założenia konta klienta
 - endpoint z rachunkiem
+- podzielenie widoków na GuestView i EmployeeView
 
 
 
@@ -21,11 +22,13 @@ Może:
     + Wyświetlanie aktualnych cen w okolicy ze strony typu GUS\
 - możliwość zostawienia opinii po pobycie
 - jakiś generator numeru rezerwacji (np. skrót standardu pokoju + data + nr pokoju)
+- regex odpowiadający za odrzucanie wulgaryzmów
 
 
 
 Bajery:
 - Ładny wygląd strony
 - system zarządzania pracownikami, ich wypłatami itd.
+
 
 
