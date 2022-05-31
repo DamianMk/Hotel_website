@@ -17,13 +17,16 @@
     <table>
         <tr>
             <th>Nazwa</th>
+            <th>Cena</th>
         </tr>
-        {% for facility in facilities %}
-            <tr>
-                <td> {{ facility }} </td>
-            </tr>
+    
+        {% for extra in extras %}
+        <tr>
+            {% for data in extra %}
+            <td>{{ data }}</td>
+            {% endfor %}
+        </tr>
         {% endfor %}
-
     </table>
 
 </body>

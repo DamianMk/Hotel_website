@@ -5,7 +5,7 @@ from django.core.validators import MaxValueValidator
 # Create your models here.
 
 
-class RoomFacility(models.Model):
+class Facility(models.Model):
     facility_name = models.CharField(max_length=50)
 
     def __str__(self):
@@ -22,7 +22,7 @@ class RoomStandard(models.Model):
 
 class StandardFacilities(models.Model):
     room_standard_id = models.ForeignKey(RoomStandard, on_delete=models.SET_NULL, null=True)
-    room_facility_id = models.ForeignKey(RoomFacility, on_delete=models.SET_NULL, null=True)
+    room_facility_id = models.ForeignKey(Facility, on_delete=models.SET_NULL, null=True)
 
 
 class Room(models.Model):
@@ -45,7 +45,7 @@ class Extras(models.Model):
 class HotelGuest(models.Model):
     name = models.CharField(max_length=50)
     surname = models.CharField(max_length=50)
-    email_address = models.CharField(max_length=100)
+    email_address = models.EmailField()
 
     def __str__(self):
         return f'{self.name} {self.surname} | {self.email_address}'

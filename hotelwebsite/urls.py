@@ -27,12 +27,24 @@ from reservations.views.room_standard import RoomStandardUpdateView
 from reservations.views.room_standard import RoomStandardSelectUpdateView
 from reservations.views.room_standard import RoomStandardDeleteView
 from reservations.views.room_standard import RoomStandardSelectDeleteView
-from reservations.views.room_facility import RoomFacilityView
-from reservations.views.room_facility import RoomFacilityCreateView
-from reservations.views.room_facility import RoomFacilityUpdateView
-from reservations.views.room_facility import RoomFacilitySelectUpdateView
-from reservations.views.room_facility import RoomFacilityDeleteView
-from reservations.views.room_facility import RoomFacilitySelectDeleteView
+from reservations.views.facility import FacilityView
+from reservations.views.facility import FacilityCreateView
+from reservations.views.facility import FacilityUpdateView
+from reservations.views.facility import FacilitySelectUpdateView
+from reservations.views.facility import FacilityDeleteView
+from reservations.views.facility import FacilitySelectDeleteView
+from reservations.views.extras import ExtrasView
+from reservations.views.extras import ExtrasCreateView
+from reservations.views.extras import ExtrasUpdateView
+from reservations.views.extras import ExtrasSelectUpdate
+from reservations.views.extras import ExtrasDeleteView
+from reservations.views.extras import ExtrasSelectDeleteView
+from reservations.views.hotel_guest import HotelGuestView
+from reservations.views.hotel_guest import HotelGuestCreateView
+from reservations.views.hotel_guest import HotelGuestUpdateView
+from reservations.views.hotel_guest import HotelGuestSelectUpdateView
+from reservations.views.hotel_guest import HotelGuestDeleteView
+from reservations.views.hotel_guest import HotelGuestSelectDeleteView
 
 
 urlpatterns = [
@@ -49,10 +61,23 @@ urlpatterns = [
     path('standard/update', RoomStandardSelectUpdateView.as_view()),
     path('standard/delete/<pk>', RoomStandardDeleteView.as_view(), name='standard_delete'),
     path('standard/delete', RoomStandardSelectDeleteView.as_view()),
-    path('facilities', RoomFacilityView.as_view(), name='facilities'),
-    path('facility/create', RoomFacilityCreateView.as_view()),
-    path('facility/update/<pk>', RoomFacilityUpdateView.as_view(), name='facility_update'),
-    path('facility/update', RoomFacilitySelectUpdateView.as_view()),
-    path('facility/delete/<pk>', RoomFacilityDeleteView.as_view(), name='facility_delete'),
-    path('facility/delete', RoomFacilitySelectDeleteView.as_view()),
+    path('facilities', FacilityView.as_view(), name='facilities'),
+    path('facility/create', FacilityCreateView.as_view()),
+    path('facility/update/<pk>', FacilityUpdateView.as_view(), name='facility_update'),
+    path('facility/update', FacilitySelectUpdateView.as_view()),
+    path('facility/delete/<pk>', FacilityDeleteView.as_view(), name='facility_delete'),
+    path('facility/delete', FacilitySelectDeleteView.as_view()),
+    path('extras', ExtrasView.as_view(), name='extras'),
+    path('extras/create', ExtrasCreateView.as_view()),
+    path('extras/update/<pk>', ExtrasUpdateView.as_view(), name='extras_update'),
+    path('extras/update', ExtrasSelectUpdate.as_view()),
+    path('extras/delete/<pk>', ExtrasDeleteView.as_view(), name='extras_delete'),
+    path('extras/delete', ExtrasSelectDeleteView.as_view()),
+    path('guests', HotelGuestView.as_view(), name='guests'),
+    path('guest/create', HotelGuestCreateView.as_view()),
+    path('guest/update/<pk>', HotelGuestUpdateView.as_view(), name='guest_update'),
+    path('guest/update', HotelGuestSelectUpdateView.as_view()),
+    path('guest/delete/<pk>', HotelGuestDeleteView.as_view(), name='guest_delete'),
+    path('guest/delete', HotelGuestSelectDeleteView.as_view()),
+
 ]

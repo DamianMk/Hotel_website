@@ -5,57 +5,59 @@ from django.views import View
 from django.views.generic import FormView
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
-from reservations.models import RoomFacility
-from reservations.forms import RoomFacilityForm
-from reservations.forms import RoomFacilitySelectForm
+from reservations.models import Facility
+from reservations.forms import FacilityForm
+from reservations.forms import FacilitySelectForm
 
 
-class RoomFacilityView(View):
+class FacilityView(View):
     def get(self, request):
-        facilities = [facility.facility_name for facility in RoomFacility.objects.all()]
-
+        facilities = [facility.facility_name for facility in Facility.objects.all()]
         return render(request, 'facility.html', context={'facilities': facilities})
 
 
-class RoomFacilityCreateView(FormView):
+class FacilityCreateView(FormView):
     template_name = 'form.html'
-    form_class = RoomFacilityForm
+    form_class = FacilityForm
     success_url = reverse_lazy('facilities')
 
     def form_valid(self, form):
         result = super().form_valid(form)
         my_data = form.cleaned_data
-        RoomFacility.objects.create(
+        Facility.objects.create(
             facility_name=my_data['facility_name']
         )
         return result
 
 
-class RoomFacilityUpdateView(UpdateView):
+class FacilityUpdateView(UpdateView):
     template_name = 'form.html'
-    model = RoomFacility
-    form_class = RoomFacilityForm
+    model = Facility
+    form_class = FacilityForm
     success_url = reverse_lazy('facilities')
 
 
-class RoomFacilitySelectUpdateView(FormView):
+class FacilitySelectUpdateView(FormView):
     template_name = 'form.html'
-    form_class = RoomFacilitySelectForm
+    form_class = FacilitySelectForm
 
     def form_valid(self, form):
         return redirect('facility_update', pk=form.cleaned_data['room_facility'].id)
 
 
-class RoomFacilityDeleteView(DeleteView):
-    template_name = 'room_facility_delete.html'
-    model = RoomFacility
+class FacilityDeleteView(DeleteView):
+    template_name = 'facility_delete.html'
+    model = Facility
     success_url = reverse_lazy('facilities')
 
 
-class RoomFacilitySelectDeleteView(FormView):
+class FacilitySelectDeleteView(FormView):
     template_name = 'form.html'
-    form_class = RoomFacilitySelectForm
+    form_class = FacilitySelectForm
 
     def form_valid(self, form):
-        return redirect('facility_delete', form.cleaned_data['room_facility'].id)
+        return redirect('facility_delete', form.cleaned_data['facility'].id)
+
+
+
 
