@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezerwacje</title>
+</head>
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+<body>
+    <h2>Lista rezerwacji</h2>
+
+    <table>
+        <tr>
+            <th>Numer rezerwacji</th>
+            <th>Data złożenia rezerwacji</th>
+            <th>Data przyjazdu</th>
+            <th>Data wyjazdu</th>
+            <th>Liczba gości</th>
+            <th>Gość</th>
+            <th>Pokój</th>
+        </tr>
+        {% for reservation in reservations %}
+        <tr>
+            <td> {{ reservation.reservation_number }} </td>
+            <td> {{ reservation.booking_date }} </td>
+            <td> {{ reservation.check_in_date }} </td>
+            <td> {{ reservation.check_out_date }} </td>
+            <td> {{ reservation.number_of_guests }} </td>
+            <td> {{ reservation.hotel_guest_id }} </td>
+            <td> {{ reservation.room_id }} </td>
+        
+        </tr>
+        {% endfor %}
+    </table>
+
+
+</body>
+</html>

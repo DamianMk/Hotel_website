@@ -17,7 +17,7 @@ class RoomView(View):
             data = [room.room_number, room.room_area, room.room_standard_id]
             rooms.append(data)
 
-        return render(request, 'room.html', context={'rooms': rooms})
+        return render(request, 'rooms.html', context={'rooms': rooms})
 
 
 class RoomCreateView(FormView):

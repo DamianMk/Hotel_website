@@ -45,6 +45,18 @@ from reservations.views.hotel_guest import HotelGuestUpdateView
 from reservations.views.hotel_guest import HotelGuestSelectUpdateView
 from reservations.views.hotel_guest import HotelGuestDeleteView
 from reservations.views.hotel_guest import HotelGuestSelectDeleteView
+from reservations.views.reservation import ReservationsView
+from reservations.views.reservation import ReservationCreateView
+from reservations.views.reservation import ReservationUpdateView
+from reservations.views.reservation import ReservationSelectUpdateView
+from reservations.views.reservation import ReservationDeleteView
+from reservations.views.reservation import ReservationSelectDeleteView
+from reservations.views.employee import EmployeeView
+from reservations.views.employee import EmployeeCreateView
+from reservations.views.employee import EmployeeUpdateView
+from reservations.views.employee import EmployeeSelectDeleteView
+from reservations.views.employee import EmployeeSelectUpdateView
+from reservations.views.employee import EmployeeDeleteView
 
 
 urlpatterns = [
@@ -79,5 +91,16 @@ urlpatterns = [
     path('guest/update', HotelGuestSelectUpdateView.as_view()),
     path('guest/delete/<pk>', HotelGuestDeleteView.as_view(), name='guest_delete'),
     path('guest/delete', HotelGuestSelectDeleteView.as_view()),
-
+    path('reservations', ReservationsView.as_view(), name='reservations'),
+    path('reservation/create', ReservationCreateView.as_view()),
+    path('reservation/update/<pk>', ReservationUpdateView.as_view(), name='reservation_update'),
+    path('reservation/update', ReservationSelectUpdateView.as_view()),
+    path('reservation/delete/<pk>', ReservationDeleteView.as_view(), name='reservation_delete'),
+    path('reservation/delete', ReservationSelectDeleteView.as_view()),
+    path('employees', EmployeeView.as_view(), name='employees'),
+    path('employee/create', EmployeeCreateView.as_view()),
+    path('employee/update/<pk>', EmployeeUpdateView.as_view(), name='employee_update'),
+    path('employee/update', EmployeeSelectUpdateView.as_view()),
+    path('employee/delete/<pk>', EmployeeDeleteView.as_view(), name='employee_delete'),
+    path('employee/delete', EmployeeSelectDeleteView.as_view()),
 ]

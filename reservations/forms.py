@@ -6,7 +6,7 @@ from reservations.models import HotelGuest
 from reservations.models import Room
 from reservations.models import RoomStandard
 from reservations.models import Facility
-from reservations.models import StandardFacilities
+from reservations.models import RoomFacility
 from reservations.models import Employee
 from reservations.models import EmployeePosition
 
@@ -18,7 +18,7 @@ class HotelGuestForm(forms.ModelForm):
 
     name = forms.CharField(max_length=50)
     surname = forms.CharField(max_length=50)
-    email_address = forms.EmailField()
+    email_address = forms.EmailField(max_length=150)
 
 
 class HotelGuestSelectForm(forms.Form):
@@ -80,4 +80,62 @@ class ExtrasForm(forms.ModelForm):
 
 class ExtrasSelectForm(forms.Form):
     extras = forms.ModelChoiceField(queryset=Extras.objects)
+
+
+class ReservationForm(forms.ModelForm):
+    class Meta:
+        model = Reservation
+        fields = '__all__'
+
+    reservation_number = forms.CharField(max_length=50)
+    booking_date = forms.DateField()
+    check_in_date = forms.DateField()
+    check_out_date = forms.DateField()
+    number_of_guests = forms.IntegerField()
+    hotel_guest_id = forms.ModelChoiceField(queryset=HotelGuest.objects, required=True)
+    room_id = forms.ModelChoiceField(queryset=Room.objects, required=True)
+
+
+class ReservationSelectForm(forms.Form):
+    reservation = forms.ModelChoiceField(queryset=Reservation.objects)
+
+
+class ReservationExtrasForm(forms.ModelForm):
+    class Meta:
+        model = ReservationExtras
+        fields = '__all__'
+
+    reservation_id = forms.ModelChoiceField(queryset=Reservation.objects, required=True)
+    extras_id = forms.ModelChoiceField(queryset=Extras.objects, required=True)
+
+
+class ReservationExtrasSelectForm(forms.Form):
+    reservation_extras = forms.ModelChoiceField(queryset=ReservationExtras.objects)
+
+
+class EmployeePositionForm(forms.ModelForm):
+    class Meta:
+        model = EmployeePosition
+        fields = '__all__'
+
+    position_name = forms.CharField(max_length=50)
+    permission_level = forms.IntegerField()
+
+
+class EmployeePositionSelectForm(forms.Form):
+    employee_position = forms.ModelChoiceField(queryset=EmployeePosition.objects)
+
+
+class EmployeeForm(forms.ModelForm):
+    class Meta:
+        model = Employee
+        fields = '__all__'
+
+    name = forms.CharField(max_length=50)
+    surname = forms.CharField(max_length=50)
+    employee_position_id = forms.ModelChoiceField(queryset=EmployeePosition.objects)
+
+
+class EmployeeSelectForm(forms.Form):
+    employee = forms.ModelChoiceField(queryset=Employee.objects)
 
