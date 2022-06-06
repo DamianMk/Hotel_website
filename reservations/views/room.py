@@ -20,6 +20,12 @@ class RoomView(View):
         return render(request, 'rooms.html', context={'rooms': rooms})
 
 
+class SingleRoomView(View):
+    def get(self, request):
+        room = [Room.room_number, Room.room_standard_id, Room.room_area]
+        return render(request, 'room.html', context={'room': room})
+
+
 class RoomCreateView(FormView):
     template_name = 'form.html'
     form_class = RoomForm

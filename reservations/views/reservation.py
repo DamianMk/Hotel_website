@@ -26,7 +26,6 @@ class ReservationCreateView(FormView):
         my_data = form.cleaned_data
         Reservation.objects.create(
             reservation_number=my_data['reservation_number'],
-            booking_date=my_data['booking_date'],
             check_in_date=my_data['check_in_date'],
             check_out_date=my_data['check_out_date'],
             number_of_guests=my_data['number_of_guests'],

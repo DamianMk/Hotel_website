@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from reservations.views.home_page import HomePage
+from reservations.views.home_page import HotelDescription
 from reservations.views.room import RoomView
+from reservations.views.room import SingleRoomView
 from reservations.views.room import RoomCreateView
 from reservations.views.room import RoomUpdateView
 from reservations.views.room import RoomSelectUpdateView
@@ -61,7 +64,10 @@ from reservations.views.employee import EmployeeDeleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', HomePage.as_view(), name='index'),
+    path('description', HotelDescription.as_view()),
     path('rooms', RoomView.as_view(), name='rooms'),
+    path('room/<pk>', SingleRoomView.as_view()),
     path('room/create', RoomCreateView.as_view()),
     path('room/update/<pk>', RoomUpdateView.as_view(), name='room_update'),
     path('room/update', RoomSelectUpdateView.as_view()),

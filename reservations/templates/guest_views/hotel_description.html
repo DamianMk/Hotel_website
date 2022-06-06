@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel</title>
+    {% extends 'guest_views/index.html' %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'reservations/style.css' %}">
+</head>
+<body>
+    
+
+    {% block description %}
+    <p id="hotel-description">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat ab molestiae quidem nobis vero impedit 
+        corrupti rerum! Possimus optio impedit commodi qui quia ducimus animi a facilis, voluptates quasi harum 
+        praesentium expedita nemo doloribus alias? Voluptatum enim necessitatibus culpa maxime repellat iusto 
+        modi voluptatem non alias sed placeat quo, ipsum eum et illo unde consectetur. Atque sint ab magni quia, 
+        reprehenderit labore vel esse veniam, et praesentium dolorem, numquam corporis. Quaerat impedit maiores, 
+        debitis voluptates blanditiis similique aliquam laudantium voluptatibus autem amet ipsum eius nobis neque 
+        tempora incidunt esse ipsa reiciendis. Nisi ab dolorem voluptatem quo? Mollitia quidem ipsa laborum 
+        eveniet illo possimus ipsum id omnis consequuntur, ducimus quo harum ad perferendis dolore eos sit 
+        consequatur eaque vitae quas nulla ea, ipsam placeat! Laudantium nisi tempora quasi maxime quibusdam 
+        porro, voluptates delectus doloremque ipsum sequi praesentium nesciunt in ea impedit itaque deserunt 
+        deleniti at sapiente! Modi distinctio reprehenderit eos quasi.
+    </p>
+    {% endblock description %}
+</body>
+</html>

@@ -53,7 +53,7 @@ class HotelGuest(models.Model):
 
 class Reservation(models.Model):
     reservation_number = models.CharField(max_length=50)
-    booking_date = models.DateField(auto_now_add=True)
+    booking_date = models.DateField(auto_now_add=True, editable=False)
     check_in_date = models.DateField()
     check_out_date = models.DateField()
     number_of_guests = models.SmallIntegerField()

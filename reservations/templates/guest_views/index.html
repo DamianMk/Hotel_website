@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'reservations/style.css' %}">
+</head>
+<body>
+    <h1 id="title-header"> Hotel </h1>
+    <nav id="main-nav">
+         <ul>
+            <li class="li-nav">
+                <button class="home-p-button" onclick="location.href='/description'">Hotel</button>
+            </li>
+            <li class="li-nav">
+                <button class="home-p-button" onclick="location.href='/rooms'">Pokoje</button>
+            </li>
+            <li class="li-nav">
+                <button class="home-p-button" onclick="location.href='reservation/create'">Rezerwacja</button>                
+            </li>
+            <li class="li-nav">
+                <button class="home-p-button">Logowanie</button>
+            </li>
+         </ul>
+    </nav>
+    {% block description %} {% endblock description %}
+
+    <img id="home-img" src="{% static 'reservations/placeholder.jpg' %}" alt="placeholder">
+</body>
+</html>

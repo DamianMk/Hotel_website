@@ -1,3 +1,5 @@
+import datetime
+
 from django import forms
 from reservations.models import Extras
 from reservations.models import Reservation
@@ -88,12 +90,21 @@ class ReservationForm(forms.ModelForm):
         fields = '__all__'
 
     reservation_number = forms.CharField(max_length=50)
-    booking_date = forms.DateField()
-    check_in_date = forms.DateField()
-    check_out_date = forms.DateField()
+    check_in_date = forms.DateField(widget=forms.SelectDateWidget())
+    check_out_date = forms.DateField(widget=forms.SelectDateWidget())
     number_of_guests = forms.IntegerField()
     hotel_guest_id = forms.ModelChoiceField(queryset=HotelGuest.objects, required=True)
     room_id = forms.ModelChoiceField(queryset=Room.objects, required=True)
+
+    def clean(self):
+        data = super(ReservationForm, self).clean()
+        check_in = self.cleaned_data['check_in_date']
+        check_out = self.cleaned_data['check_out_date']
+        if check_in > check_out:
+            self.add_error('check_in_date', 'Data przyjazdu nie może być później niż data wyjazdu.')
+        elif check_in < datetime.date.today():
+            self.add_error('check_in_date', 'Nie można zarezerwować daty wstecz.')
+        return data
 
 
 class ReservationSelectForm(forms.Form):
