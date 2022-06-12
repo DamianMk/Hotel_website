@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from reservations.views.home_page import HomePage
 from reservations.views.home_page import HotelDescription
+from reservations.views.home_page import GuestLoginView
 from reservations.views.room import RoomView
 from reservations.views.room import SingleRoomView
 from reservations.views.room import RoomCreateView
@@ -25,6 +26,7 @@ from reservations.views.room import RoomSelectUpdateView
 from reservations.views.room import RoomDeleteView
 from reservations.views.room import RoomSelectDeleteView
 from reservations.views.room_standard import RoomStandardView
+from reservations.views.room_standard import RoomStandardGuestView
 from reservations.views.room_standard import RoomStandardCreateView
 from reservations.views.room_standard import RoomStandardUpdateView
 from reservations.views.room_standard import RoomStandardSelectUpdateView
@@ -66,8 +68,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomePage.as_view(), name='index'),
     path('description', HotelDescription.as_view()),
+    path('guest/login', GuestLoginView.as_view(), name='guest_login'),
+    path('home/standards', RoomStandardGuestView.as_view()),
     path('rooms', RoomView.as_view(), name='rooms'),
-    path('room/<pk>', SingleRoomView.as_view()),
     path('room/create', RoomCreateView.as_view()),
     path('room/update/<pk>', RoomUpdateView.as_view(), name='room_update'),
     path('room/update', RoomSelectUpdateView.as_view()),

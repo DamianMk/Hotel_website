@@ -23,6 +23,7 @@ Może:
 - możliwość zostawienia opinii po pobycie
 - jakiś generator numeru rezerwacji (np. skrót standardu pokoju + data + nr pokoju)
 - regex odpowiadający za odrzucanie wulgaryzmów
+- profil gościa - wyświetlana historia wizyt
 
 
 

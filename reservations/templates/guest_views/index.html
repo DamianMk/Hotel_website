@@ -16,17 +16,17 @@
                 <button class="home-p-button" onclick="location.href='/description'">Hotel</button>
             </li>
             <li class="li-nav">
-                <button class="home-p-button" onclick="location.href='/rooms'">Pokoje</button>
+                <button class="home-p-button" onclick="location.href='/home/standards'">Pokoje</button>
             </li>
             <li class="li-nav">
-                <button class="home-p-button" onclick="location.href='reservation/create'">Rezerwacja</button>                
+                <button class="home-p-button" onclick="location.href='/reservation/create'">Rezerwacja</button>                
             </li>
             <li class="li-nav">
-                <button class="home-p-button">Logowanie</button>
+                <button class="home-p-button" onclick="location.href='/guest/login'">Logowanie</button>
             </li>
          </ul>
     </nav>
-    {% block description %} {% endblock description %}
+    {% block content %} {% endblock content %}
 
     <img id="home-img" src="{% static 'reservations/placeholder.jpg' %}" alt="placeholder">
 </body>

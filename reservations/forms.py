@@ -46,6 +46,7 @@ class RoomStandardForm(forms.ModelForm):
 
     standard_name = forms.CharField(max_length=50)
     price = forms.IntegerField()
+    description = forms.CharField(max_length=300)
 
 
 class RoomStandardSelectForm(forms.Form):
@@ -87,7 +88,7 @@ class ExtrasSelectForm(forms.Form):
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
-        fields = '__all__'
+        fields = '__all__'  # tutaj wpisać które pola się wyświetlą
 
     reservation_number = forms.CharField(max_length=50)
     check_in_date = forms.DateField(widget=forms.SelectDateWidget())

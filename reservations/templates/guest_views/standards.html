@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel</title>
+    {% extends 'guest_views/index.html' %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'reservations/style.css' %}">
+</head>
+<body>
+    {% block content %}
+
+        {% for room_standard in standards %}
+            <divs>
+            <h3> {{ room_standard }} </h3>
+            <p> {{ room_standard.description }} </p>
+
+            {% for standard, size in room_sizes.items %}
+                {% if room_standard.standard_name == standard  %}
+                    <p> Powierzchnia pokoi: {{ size.0 }}-{{ size.1 }} m</p>
+                {% endif %}
+            {% endfor %}
+            </div>
+            <div>
+                <img id="room-standard-img" src="{% static 'reservations/placeholder.jpg' %}" alt="placeholder">
+            </div>
+        {% endfor %}
+
+
+    {% endblock content %}
+</body>
+</html>   

@@ -6,6 +6,7 @@ from django.views.generic import FormView
 from django.views.generic import UpdateView
 from django.views.generic import DeleteView
 from reservations.models import RoomStandard
+from reservations.models import Room
 from reservations.forms import RoomStandardForm
 from reservations.forms import RoomStandardSelectForm
 
@@ -18,6 +19,22 @@ class RoomStandardView(View):
             standards.append(data)
 
         return render(request, 'room_standard.html', context={'standards': standards})
+
+
+class RoomStandardGuestView(View):
+    def get(self, request):
+        standards = RoomStandard.objects.all()
+        rooms = Room.objects.all()
+        room_sizes = {}
+        for standard in standards:
+            areas = []
+            for room in rooms:
+                if room.room_standard_id == standard:
+                    areas.append(room.room_area)
+            room_sizes[standard.standard_name] = [min(areas), max(areas)]
+
+        return render(request, 'guest_views/standards.html', context={'standards': standards,
+                                                                      'room_sizes': room_sizes})
 
 
 class RoomStandardCreateView(FormView):

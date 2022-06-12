@@ -20,7 +20,7 @@
 
 .home-p-button {
     border: none;
-    background-color: blue;
+    background-color: dodgerblue;
     padding: 14px 40px;
     font-size: 20px;
     border-radius: 4px;
@@ -41,6 +41,11 @@
     font-size: larger;
 }
 
+#room-standard-img {
+    float: left;
+    width: 60%;
+    height: auto;
+}
 
 
 

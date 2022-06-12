@@ -15,6 +15,7 @@ class Facility(models.Model):
 class RoomStandard(models.Model):
     standard_name = models.CharField(max_length=50)
     price = models.SmallIntegerField(validators=[MinValueValidator(0)])
+    description = models.TextField(max_length=300, default='')
 
     def __str__(self):
         return f'{self.standard_name}'
